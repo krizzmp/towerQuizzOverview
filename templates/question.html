@@ -1,0 +1,23 @@
+<!--
+  This template was loaded because of the '/student/:studentId' route (app.js)
+  'student' is a $scope variable created in the StudentCtrl controller (controllers.js)
+  The StudentCtrl pulls data from the Students service (service.js)
+  The Students service returns an array of student data
+-->
+<nav-page title="question.q">
+  <content has-header="true">
+
+    <list>
+	    <div class="item item-divider">
+		    <span ng-click="sortBy='id'">Name</span>
+		    <span ng-click="sortBy='ca/qa'">Correct (%)</span>
+		    <span ng-click="sortBy='ha/qa'">Help (%)</span>
+	    </div>
+	    <link-item ng-repeat="student in question.students | orderBy: sortBy" type="item-text-wrap" href="#/student/{{student.id}}" ng-class="{false:!question.correct,true:question.correct}">
+		    <span>{{student.name}}</span>
+		    <span>{{student.ca/question.qa*100|number:0}}</span>
+		    <span>{{student.ha}}</span>
+	    </link-item>
+    </list>
+  </content>
+</nav-page>

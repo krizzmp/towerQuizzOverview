@@ -1,0 +1,127 @@
+<nav-page id="app-page" ng-controller="AppCtrl">
+
+
+  <!--
+  Create tabs with an icon and text label, using the tabs-positive style (blue by default),
+  and disabling header title animation when switching tabs.
+  -->
+  <tabs tabs-style="tabs-icon-top" tabs-type="tabs-stable" animate-nav="false">
+
+    <!-- Students tab -->
+    <tab title="Students" icon="icon ion-person-stalker" ng-controller="StudentsTabCtrl" right-buttons="rightButtons">
+	    <content has-header="true" has-tabs="true" >
+	      <br/>
+	      <div class="chart">
+		      <a href="#/student/{{student.id}}"
+		         class="hint--top hint--rounded hint--bounce"
+		         data-hint="{{student.name}}"
+		         ng-repeat="student in students | orderBy:sortBy[0]" style="height: {{student.ca/student.qa*100}}px; margin-top: {{100-student.ca/student.qa*100}}px;	">
+			      <i class="icon ion-record {{student.color}}" style="line-height: {{student.ca/student.qa*100}}px"></i>
+		      </a>
+	      </div>
+        <list>
+	        <div class="item item-divider" >
+		        <span ng-click="sortBy[0]='id'">Name</span>
+		        <span ng-click="sortBy[0]='ca/qa'">Correct (%)</span>
+		        <span ng-click="sortBy[0]='ha/qa'">Help (%)</span>
+	        </div>
+          <link-item ng-repeat="student in students | orderBy:sortBy[0]" type="item-text-wrap" href="#/student/{{student.id}}">
+	          <i class="icon ion-record {{student.color}}" ></i>
+	          <span>{{student.name}}</span>
+            <span>{{student.ca/student.qa*100 |number:0}}%</span>
+            <span>{{student.ha/student.qa*100 |number:0}}%</span>
+          </link-item>
+        </list>
+      </content>
+    </tab>
+    <!-- Adoption tab -->
+    <tab title="Questions" icon="icon ion-ios7-help" ng-controller="QuestionsTabCtrl" right-buttons="rightButtons">
+	    <content has-header="true" has-tabs="true" >
+		    <br/>
+		    <div class="chart">
+			    <a href="#/question/{{student.id}}" class="hint--top hint--rounded hint--bounce" data-hint="{{student.q}}" ng-repeat="student in questions | orderBy:sortBy[0]" style="	height: {{student.ca/student.qa*100}}px; margin-top: {{100-student.ca/student.qa*100}}px;	">
+			    </a>
+		    </div>
+		    <list>
+			    <div class="item item-divider" >
+				    <span ng-click="sortBy[0]='id'">Name</span>
+				    <span ng-click="sortBy[0]='ca/qa'">Correct (%)</span>
+				    <span ng-click="sortBy[0]='ha/qa'">Help (%)</span>
+			    </div>
+			    <link-item ng-repeat="student in questions | orderBy:sortBy[0]" type="item-text-wrap" href="#/question/{{student.id}}">
+				    <span>{{student.q}}</span>
+				    <span>{{student.ca/student.qa*100 |number:0}}%</span>
+				    <span>{{student.ha/student.qa*100 |number:0}}%</span>
+			    </link-item>
+		    </list>
+	    </content>
+    </tab>
+    <!-- Home tab -->
+	  <tab title="Categories" icon="icon ion-pricetags" ng-controller="CategoriesTabCtrl" right-buttons="rightButtons">
+		  <content has-header="true" has-tabs="true" >
+			  <br/>
+			  <div class="chart">
+				  <a href="#/category/{{category.id}}" class="hint--top hint--rounded hint--bounce" data-hint="{{category.name}}" ng-repeat="category in categories | orderBy:sortBy[0]" style="	height: {{category.ca/category.qa*100}}px; margin-top: {{100-category.ca/category.qa*100}}px;	">
+				  </a>
+			  </div>
+			  <list>
+				  <div class="item item-divider" >
+					  <span ng-click="sortBy[0]='id'">Name</span>
+					  <span ng-click="sortBy[0]='ca/qa'">Correct (%)</span>
+					  <span ng-click="sortBy[0]='ha/qa'">Help (%)</span>
+				  </div>
+				  <link-item ng-repeat="category in categories | orderBy:sortBy[0]" type="item-text-wrap" href="#/category/{{category.id}}">
+					  <span>{{category.name}}</span>
+					  <span>{{category.ca/category.qa*100 |number:0}}%</span>
+					  <span>{{category.ha/category.qa*100 |number:0}}%</span>
+				  </link-item>
+			  </list>
+		  </content>
+	  </tab>
+    <!-- Home tab -->
+    <tab title="Settings" icon="icon ion-ios7-gear">
+      <content has-header="true" has-tabs="true" >
+	      <list>
+		      <div class="item item-divider">
+			      Courses
+		      </div>
+		      <div class=" item item-checkbox">
+				      <label class="checkbox">
+					      <input type="checkbox" checked>
+				      </label>
+				      7.a
+		      </div>
+		      <div class=" item item-checkbox">
+			      <label class="checkbox">
+				      <input type="checkbox" checked>
+			      </label>
+			      7.b
+		      </div>
+		      <div class=" item item-checkbox">
+			      <label class="checkbox">
+				      <input type="checkbox" checked>
+			      </label>
+			      8.a
+		      </div>
+		      <div class="item item-divider">
+			      Account
+			      </div>
+			      <div class="item ">
+			      <h2>
+			      <i class="icon ion-ios7-person"></i>
+			      Elisabeth the 2nd
+			      </h2>
+			      <h2 class="dark"> <i class=" icon ion-ios7-email"></i> elisii@royal.co.uk
+			      </h2>
+		      </div>
+		      <item>
+			      <button class="button button-block button-assertive">
+			        logout
+		        </button>
+		      </item>
+	      </list>
+      </content>
+    </tab>
+
+  </tabs>
+</nav-page>
