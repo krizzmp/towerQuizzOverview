@@ -1,0 +1,25 @@
+<!--
+  This template was loaded because of the '/student/:studentId' route (app.js)
+  'student' is a $scope variable created in the PetCtrl controller (controllers.js)
+  The PetCtrl pulls data from the Pets service (service.js)
+  The Pets service returns an array of student data
+-->
+<nav-page title="student.name">
+  <content has-header="true">
+
+    <list>
+	    <div class="item item-divider">
+		    <span ng-click="sortBy='id'">Question</span>
+		    <span ng-click="sortBy='answer'">Answer</span>
+		    <span ng-click="sortBy='ca'">Correct answer</span>
+		    <span ng-click="sortBy='ha'">Help used</span>
+	    </div>
+	    <link-item ng-repeat="question in student.questions | orderBy: sortBy" type="item-text-wrap" href="#/question/{{question.id}}" ng-class="{false:!question.correct,true:question.correct}">
+		    <span>{{question.q}}?</span>
+		    <span>{{question.answer}}</span>
+		    <span>{{question.ca}}</span>
+		    <span>{{question.ha? 'Yes':'No'}}</span>
+	    </link-item>
+    </list>
+  </content>
+</nav-page>
