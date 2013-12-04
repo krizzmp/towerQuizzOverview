@@ -34,9 +34,9 @@ angular.module('starter.services', [])
         ]
     },{
           id: 1,
-          name: 'Abraham Lincoln',
+          name: 'Charlie Sheen',
           qa: 12,
-          ca:9,
+          ca:6,
           ha:3,
           color:'assertive',
           questions:[
@@ -58,10 +58,34 @@ angular.module('starter.services', [])
           ]
       },{
           id: 2,
-          name: 'Abraham Lincoln',
+          name: 'David Williams',
           qa: 9,
           ca:8,
-          ha:3,
+          ha:1,
+          color:'balanced',
+          questions:[
+              {
+                  id:0,
+                  q:"Is the sky blue",
+                  answer:"No",
+                  ca:"Yes",
+                  correct:false,
+                  ha:false
+              },{
+                  id:1,
+                  q:"Is the sky blue2",
+                  answer:"No",
+                  ca:"Yes",
+                  correct:false,
+                  ha:false
+              }
+          ]
+      },{
+          id: 3,
+          name: 'Michael Bluth',
+          qa: 10,
+          ca:9,
+          ha:1,
           color:'balanced',
           questions:[
               {
@@ -104,16 +128,39 @@ angular.module('starter.services', [])
             qa: 10,
             ca:8,
             ha:2,
+            color:'balanced',
             students:[
                 {
                     id:0,
-                    name:"abraham",
+                    name:"Abraham Lincoln",
                     qa:10,
                     ca:9,
                     ha:4
                 },{
                     id:1,
-                    name:"abraham",
+                    name:"Charlie Sheen",
+                    qa:9,
+                    ca:8,
+                    ha:3
+                }
+            ]
+        },{
+            id: 0,
+            q: 'Is the sky blue2?',
+            qa: 10,
+            ca:6,
+            ha:2,
+            color:'assertive',
+            students:[
+                {
+                    id:0,
+                    name:"Abraham Lincoln",
+                    qa:10,
+                    ca:9,
+                    ha:4
+                },{
+                    id:1,
+                    name:"Charlie Sheen",
                     qa:9,
                     ca:8,
                     ha:3
@@ -143,19 +190,22 @@ angular.module('starter.services', [])
                 qa: 10,
                 ca:8,
                 ha:2,
+                color:'energized',
                 questions:[
                     {
                         id:0,
-                        q:"abraham",
+                        q:"Is the sky blue?",
                         qa:10,
                         ca:9,
-                        ha:4
+                        ha:4,
+                        color:'balanced'
                     },{
                         id:1,
-                        q:"abraham",
+                        q:"Is the sky blue2?",
                         qa:9,
                         ca:8,
-                        ha:3
+                        ha:3,
+                        color:'energized'
                     }
                 ]
             }

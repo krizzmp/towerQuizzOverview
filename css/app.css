@@ -15,12 +15,6 @@ span {
   display: inline-block;
   text-align: center; }
 
-.false {
-  border-left: 4px solid #ff3831; }
-
-.true {
-  background: green; }
-
 .chart {
   display: flex; }
   .chart > a {

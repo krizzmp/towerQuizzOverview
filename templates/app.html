@@ -21,6 +21,7 @@
 	      </div>
         <list>
 	        <div class="item item-divider" >
+		        <i class="icon ion-record stable" ></i>
 		        <span ng-click="sortBy[0]='id'">Name</span>
 		        <span ng-click="sortBy[0]='ca/qa'">Correct (%)</span>
 		        <span ng-click="sortBy[0]='ha/qa'">Help (%)</span>
@@ -40,15 +41,18 @@
 		    <br/>
 		    <div class="chart">
 			    <a href="#/question/{{student.id}}" class="hint--top hint--rounded hint--bounce" data-hint="{{student.q}}" ng-repeat="student in questions | orderBy:sortBy[0]" style="	height: {{student.ca/student.qa*100}}px; margin-top: {{100-student.ca/student.qa*100}}px;	">
+				    <i class="icon ion-record {{student.color}}" style="line-height: {{student.ca/student.qa*100}}px"></i>
 			    </a>
 		    </div>
 		    <list>
 			    <div class="item item-divider" >
+				    <i class="icon ion-record stable" ></i>
 				    <span ng-click="sortBy[0]='id'">Name</span>
 				    <span ng-click="sortBy[0]='ca/qa'">Correct (%)</span>
 				    <span ng-click="sortBy[0]='ha/qa'">Help (%)</span>
 			    </div>
 			    <link-item ng-repeat="student in questions | orderBy:sortBy[0]" type="item-text-wrap" href="#/question/{{student.id}}">
+				    <i class="icon ion-record {{student.color}}" ></i>
 				    <span>{{student.q}}</span>
 				    <span>{{student.ca/student.qa*100 |number:0}}%</span>
 				    <span>{{student.ha/student.qa*100 |number:0}}%</span>
@@ -62,15 +66,18 @@
 			  <br/>
 			  <div class="chart">
 				  <a href="#/category/{{category.id}}" class="hint--top hint--rounded hint--bounce" data-hint="{{category.name}}" ng-repeat="category in categories | orderBy:sortBy[0]" style="	height: {{category.ca/category.qa*100}}px; margin-top: {{100-category.ca/category.qa*100}}px;	">
+					  <i class="icon ion-record {{category.color}}" style="line-height: {{category.ca/category.qa*100}}px"></i>
 				  </a>
 			  </div>
 			  <list>
 				  <div class="item item-divider" >
+					  <i class="icon ion-record stable" ></i>
 					  <span ng-click="sortBy[0]='id'">Name</span>
 					  <span ng-click="sortBy[0]='ca/qa'">Correct (%)</span>
 					  <span ng-click="sortBy[0]='ha/qa'">Help (%)</span>
 				  </div>
 				  <link-item ng-repeat="category in categories | orderBy:sortBy[0]" type="item-text-wrap" href="#/category/{{category.id}}">
+					  <i class="icon ion-record {{category.color}}" ></i>
 					  <span>{{category.name}}</span>
 					  <span>{{category.ca/category.qa*100 |number:0}}%</span>
 					  <span>{{category.ha/category.qa*100 |number:0}}%</span>
