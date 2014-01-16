@@ -1,0 +1,74 @@
+@import "bourbon/bourbon"
+@import "neat/neat"
+
+body
+  margin: 0
+  @include outer-container
+.nav
+
+  background: #666
+  height: 64px
+  line-height: 64px
+  & > a
+    @include span-columns(4)
+    text-align: center
+    text-decoration: none
+    color: #111
+    &.active
+      color: #000
+      text-decoration: underline
+.navn
+  height: 48px
+  line-height: 48px
+  background-color: #333333
+  font-size: 24px
+  text-align: center
+.chart
+  background: #333
+  height: 100px
+  & > div
+    background: #222
+    width: 5%
+    float: left
+    border-right: 1px solid #333
+    &:last-child
+      border-right: none
+  &.cat > div
+    width: 25%
+  .c1
+    height: 10px
+    margin-top: 90px
+  .c2
+    height: 20px
+    margin-top: 80px
+  .c3
+    height: 30px
+    margin-top: 70px
+  .c4
+    height: 40px
+    margin-top: 60px
+  .c5
+    height: 50px
+    margin-top: 50px
+  .c6
+    height: 60px
+    margin-top: 40px
+  .c7
+    height: 70px
+    margin-top: 30px
+
+
+.sort-bar
+  height: 32px
+  background: #333
+  padding: 2px
+  //padding-right: 8px
+  .btn
+    @include button(simple,#333)
+    float: right
+
+table
+  width: 100%
+  padding: 2px
+  th
+    text-align: left

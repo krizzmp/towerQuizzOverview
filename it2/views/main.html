@@ -1,0 +1,38 @@
+<div class="highlight">
+	<div class="hl"></div>
+</div>
+
+
+<div class="chart">
+	<a href="" class="bar hint--top hint--rounded hint--bounce" data-hint="{{thing.name}}" ng-repeat="thing in data.students | orderBy:sorting" style="
+		width:{{ 100 / data.students.length}}%;
+		height:{{thing.rightAnswers/thing.questionsAnswered*100}}px;
+
+		margin-top: {{100-thing.rightAnswers/thing.questionsAnswered*100}}px;
+	">
+	</a>
+</div>
+
+<div class="gerp">
+	<div class="radio" style="margin-top: 10px;">
+		<input id="male" type="radio" name="gender" ng-model="sorting" value="name">
+		<label for="male">navn</label>
+		<input id="female" type="radio" name="gender" ng-model="sorting" value="rightAnswers/questionsAnswered" >
+		<label for="female">rigtige svar (%)</label>
+	</div>
+	<table>
+		<tr>
+			<th>navn</th>
+			<th>rigtige svar (%)</th>
+		</tr>
+		<tr ng-class="{'red': $index < data.students.length*0.25 , 'yellow': data.students.length*0.25 < $index && $index < data.students.length*0.75 , 'green': $index > data.students.length*0.75}" ng-repeat="thing in data.students | orderBy:sorting">
+			<td>
+				{{thing.name}}
+			</td>
+			<td>
+				{{thing.rightAnswers/thing.questionsAnswered*100 | number:2}}%
+			</td>
+		</tr>
+	</table>
+</div>
+
